@@ -10,55 +10,38 @@ namespace Solutions
     {
         public int RomanToInt(string s)
         {
-            int[] convertedNums = new int[s.Length];
             int finalResult = 0;
+            int previousValue = 0;
+            int convertedValue = 0;
 
             for (int i = s.Length - 1; i >= 0; i--)
             {
-                convertedNums[i] = ConvertRoman(s[i]);
+                ConvertRoman.TryGetValue(s[i], out int converted);
+                previousValue = convertedValue;
+                convertedValue = converted;
 
                 // compare to earlier number and subtract if larger
-                if (i != s.Length - 1)
+                if (convertedValue < previousValue)
                 {
-                    if (convertedNums[i] < convertedNums[i + 1])
-                    {
-                        finalResult -= convertedNums[i];
-                    } 
-                    else
-                    {
-                        finalResult += convertedNums[i];
-                    }
-                }
+                    finalResult -= convertedValue;
+                } 
                 else
                 {
-                    finalResult += convertedNums[i];
+                    finalResult += convertedValue;
                 }
             }
 
             return finalResult;
         }
 
-        private int ConvertRoman(char romanChar)
-        {
-            switch (romanChar)
-            {
-                case 'I':
-                    return 1;
-                case 'V':
-                    return 5;
-                case 'X':
-                    return 10;
-                case 'L':
-                    return 50;
-                case 'C':
-                    return 100;
-                case 'D':
-                    return 500;
-                case 'M':
-                    return 1000;
-                default:
-                    throw new Exception("invalid char");
-            }
-        }
+        private Dictionary<char, int> ConvertRoman = new() {
+            {'I',1},
+            {'V',5},
+            {'X',10},
+            {'L',50},
+            {'C',100},
+            {'D',500},
+            {'M',1000}
+        };
     }
 }

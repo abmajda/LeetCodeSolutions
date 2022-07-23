@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeetCodeSolutions.Solutions
+namespace Solutions
 {
     internal class RomanToIntSolution
     {
@@ -13,9 +13,26 @@ namespace LeetCodeSolutions.Solutions
             int[] convertedNums = new int[s.Length];
             int finalResult = 0;
 
-            for (int i = 0; i < s.Length; i++)
+            for (int i = s.Length - 1; i >= 0; i--)
             {
+                convertedNums[i] = ConvertRoman(s[i]);
 
+                // compare to earlier number and subtract if larger
+                if (i != s.Length - 1)
+                {
+                    if (convertedNums[i] < convertedNums[i + 1])
+                    {
+                        finalResult -= convertedNums[i];
+                    } 
+                    else
+                    {
+                        finalResult += convertedNums[i];
+                    }
+                }
+                else
+                {
+                    finalResult += convertedNums[i];
+                }
             }
 
             return finalResult;

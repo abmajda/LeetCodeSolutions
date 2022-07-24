@@ -34,7 +34,7 @@ namespace Solutions
             return finalResult;
         }
 
-        private Dictionary<char, int> ConvertRoman = new() {
+        private static Dictionary<char, int> ConvertRoman = new() {
             {'I',1},
             {'V',5},
             {'X',10},

@@ -1,6 +1,6 @@
 ﻿// using this to test solutions
 
 using Solutions = LeetCodeSolutions.Solutions;
-var Solution = new Solutions.RansomNote();
+var Solution = new Solutions.FizzBuzz();
 
-Console.WriteLine(Solution.CanConstruct("aa", "aab"));
+Console.WriteLine(Solution.Display(3));

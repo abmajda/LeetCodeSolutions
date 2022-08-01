@@ -1,6 +1,6 @@
 ﻿// using this to test solutions
 
 using Solutions = LeetCodeSolutions.Solutions;
-var Solution = new Solutions.RemoveDigitMaximize();
+var Solution = new Solutions.PhoneNumberLetterCombinations();
 
-Console.WriteLine(Solution.RemoveDigit("1231", '1'));
+Console.WriteLine(Solution.LetterCombinations("23"));

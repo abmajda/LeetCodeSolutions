@@ -1,6 +1,7 @@
 ﻿// using this to test solutions
 
 using Solutions = LeetCodeSolutions.Solutions;
-var Solution = new Solutions.PhoneNumberLetterCombinations();
+var Solution = new Solutions.WordSearch();
 
-Console.WriteLine(Solution.LetterCombinations("23"));
+
+Console.WriteLine(Solution.Exist(arr, "ABCCED"));
